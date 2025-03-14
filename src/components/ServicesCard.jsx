@@ -13,6 +13,7 @@ import visite from '../assets/visite.jpg';
 
 const ServicesCard= ({ service }) => {
     return <>
+    
         <Card style={{ width: '18rem' }}>
             {service.service_name === "Massage relaxant" && <Card.Img  variant="top" src={massage} styles={{objectFit: "contain"}} height={250} />}
             {service.service_name === "Accès piscine" && <Card.Img  variant="top" src={piscine} styles={{objectFit: "contain"}} height={250} />}
@@ -23,14 +24,14 @@ const ServicesCard= ({ service }) => {
             {service.service_name === "Service de blanchisserie" && <Card.Img  variant="top" src={blanchisserie} styles={{objectFit: "contain"}} height={250} />}
             {service.service_name === "Visite guidée" && <Card.Img  variant="top" src={visite} styles={{objectFit: "contain"}} height={250} />}
 
-            <Card.Header className='text-center'>{service.service_name}</Card.Header>
-            <Card.Body className='d-flex flex-column align-items-center'>
+            <Card.Header className='text-center' style={{fontWeight:"bold", backgroundColor: '#333333', color:'#F5F6F5'}}>{service.service_name}</Card.Header>
+            <Card.Body className='d-flex flex-column align-items-center' style={{backgroundColor: '#40C4FF'}}>
               
                 <Card.Text className='text-center'>
                     <li> {service.description}</li>
                     <li>Prix : {service.price}</li>
                 </Card.Text>
-                <Button variant="primary">Réserver</Button>
+                <Button style={{backgroundColor:'#4CAF50', color:'#F5F6F5' }}>Réserver</Button>
             </Card.Body>
         </Card>
     </>;

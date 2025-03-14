@@ -11,3 +11,9 @@ ul, li{
     color: #ffffff;
     scale: 1.1;
   }
+
+  Button:hover {
+    scale: 1.1;
+    color: #F4D03F !important;
+
+  }

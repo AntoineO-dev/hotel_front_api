@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import ServicesCard from "../components/ServicesCard";
 import servicesServices from "../services/servicesService";
 
+
 const ServicesPage = () => {
     const [services, setServices] = useState([]);
 
@@ -19,13 +20,13 @@ const ServicesPage = () => {
         fetchServices();
     }, []);
     
-    return <Container className="d-flex flex-column align-items-center">
-        <h1 className="mb-4">Nos suppléments : </h1>
-        <div className="d-flex flex-wrap justify-content-center  gap-3">
+    return <Container fluid style={{backgroundColor: '#F9E9D4', color: 'white'}}>
+        <div className="d-flex flex-wrap justify-content-center p-3  gap-3">
             {services.map((service, index) => {
                 return <ServicesCard key={index} service={service} />
             })}
         </div>
+       
     </Container>;
 }
  
