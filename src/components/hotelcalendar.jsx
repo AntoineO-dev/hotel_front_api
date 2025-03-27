@@ -13,10 +13,25 @@ const HotelCalendar = () => {
             { title: 'Meeting', start: new Date() }
           ]
 
+    const renderEventContent = (eventInfo) => {
+        return (
+          <>
+            <b>{eventInfo.timeText}</b>
+            <i>{eventInfo.event.title}</i>
+          </>
+        )
+      }
+
     const fetchReservations = async () => {
         try {
             const response = await reservationsServices.getReservations()
-            setReservations(response.data)
+            const data = response.data.map(reservation => {
+                return {
+                    title: reservation.id_client,
+                    start: reservation.check_in_date,
+                    end: reservation.check_out_date
+                }
+            })
 
 
         } catch (error) {
@@ -30,14 +45,13 @@ const HotelCalendar = () => {
 
     return <>
         <div>
-            <h1>Calendrier</h1>
-            <FullCalendar
-                plugins={[dayGridPlugin]}
-                initialView='dayGridMonth'
-                weekends={false}
-                events={events}
-                eventContent={renderEventContent}
-            />
+        <FullCalendar
+        plugins={[dayGridPlugin]}
+        initialView='dayGridMonth'
+        weekends={true}
+        events={events}
+        eventContent={renderEventContent}
+      />
         </div>
     </>;
 }
